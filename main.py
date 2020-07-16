@@ -15,10 +15,10 @@ board = [
 def print_board(bo):
 	for i in range(len(bo)):
 		if not (i % 3) and i != 0:
-			print("- - - - - - - - - - - - -") # horizontal line in order to separate the 9x9 blocks of numbers
+			print("- - - - - - - - - - - -") # horizontal line in order to separate the 9x9 blocks of numbers
 
 		for j in range(len(bo[0])):
-			if not( j % 3 ):
+			if not( j % 3 ) and j != 0:
 				print(" | ", end="") # vertical line for same purpose, end = "" makes sure that the print statement does not include a \n
 
 			if j == 8:
@@ -27,3 +27,9 @@ def print_board(bo):
 				print(str(bo[i][j]) + " ", end="")
 
 print_board(board)
+
+def find_empty(bo):
+	for i in range(len(bo)):
+		for j in range(len(bo[0])):
+			if bo[i][j] == 0:
+				return (i, j) #row, col
