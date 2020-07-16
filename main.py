@@ -12,6 +12,16 @@ board = [
     [0,4,9,2,0,6,0,0,7]
 ]
 
+def valid(bo, num, pos):
+
+	#check row
+	for i in range(len(bo[0])):
+		#pos[0] is the row tuple
+		#checks every number in board and compares it to num to see if it's valid
+		if bo[pos[0]][i] == num and pos[1] != i: #also skips over the position of the input value
+			return False
+		
+
 def print_board(bo):
 	for i in range(len(bo)):
 		if not (i % 3) and i != 0:
