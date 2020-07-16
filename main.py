@@ -14,16 +14,16 @@ board = [
 
 def print_board(bo):
 	for i in range(len(bo)):
-		if i % 3 and i != 0:
+		if not (i % 3) and i != 0:
 			print("- - - - - - - - - - - - -") # horizontal line in order to separate the 9x9 blocks of numbers
 
 		for j in range(len(bo[0])):
-			if j % 3 == 0 and j != 0:
+			if not( j % 3 ):
 				print(" | ", end="") # vertical line for same purpose, end = "" makes sure that the print statement does not include a \n
 
 			if j == 8:
 				print(bo[i][j]) #ensure that the \n is included
 			else:
-				print(bo([i][j]) + " ", end="")
+				print(str(bo[i][j]) + " ", end="")
 
 print_board(board)
