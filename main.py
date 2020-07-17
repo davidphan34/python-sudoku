@@ -12,6 +12,9 @@ board = [
     [0,4,9,2,0,6,0,0,7]
 ]
 
+def solve(bo):
+	
+
 def valid(bo, num, pos):
 
 	#check row
@@ -25,6 +28,19 @@ def valid(bo, num, pos):
 		if bo[i][pos[1]] == num and pos[0] != i:
 			return False
 
+	#determine the 3x3 box that we're in
+	#boxes will be identified by x,y value
+	box = []
+	box[0] = pos[1] // 3 #box x value
+	box[1] = pos[0] // 3 #box y value
+
+	for i in range(box[1] * 3, box[1] * 3 + 3):
+		for j in range(box[0] * 3, box[0] * 3 + 3):
+			if bo[i][j] == num and (i,j) != pos:
+				return False
+
+	#if every check passes, return True
+	return True
 
 def print_board(bo):
 	for i in range(len(bo)):
