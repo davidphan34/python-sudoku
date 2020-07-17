@@ -20,7 +20,11 @@ def valid(bo, num, pos):
 		#checks every number in board and compares it to num to see if it's valid
 		if bo[pos[0]][i] == num and pos[1] != i: #also skips over the position of the input value
 			return False
-		
+	#checks the column
+	for i in range(len(bo)):#pos[1] is the column tuple
+		if bo[i][pos[1]] == num and pos[0] != i:
+			return False
+
 
 def print_board(bo):
 	for i in range(len(bo)):
